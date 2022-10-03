@@ -11,7 +11,7 @@ public class LaunchFileRead {
     private static InputStream is;
     private static String obj;
     private static int val;
-    private static int ver = 3;
+    public static int ver = 3;
     
     private static void openFile(String res) {
     	resourceName = res;
@@ -21,11 +21,15 @@ public class LaunchFileRead {
         }
     }
     
-    /* 
-    private static void verCheck(String file) { //Workin' on this, can't get the game to stop when verR != ver
-    	int verR = getVal(file, "ver");
+    
+    public static void verCheck(String file) {
+    	String verS = getString(file, "ver");
+    	int verR = Integer.parseInt(verS);
+    	
     	Scanner sc = new Scanner(System.in);
-    	if (verR == ver) {
+    	System.out.print(ver + verR);
+    	if (verR > ver && verR < ver) {
+    		return;
     	} else if (ver > verR){
     		System.err.println("Game configuration file is outdated! Please change and run again");
     		System.out.println("Press any key to continue.");
@@ -37,7 +41,7 @@ public class LaunchFileRead {
     		sc.nextLine();
     		System.exit(0);
     	}
-    } */
+    }
     
     public static String getString(String file, String Object) {
 		openFile(file);
