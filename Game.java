@@ -16,22 +16,22 @@ public class Game {
 
 		LocalDate date;
 		LocalTime time = LocalTime.now();
-		int fSec = time.getSecond();
+		int fSec = time.getSecond() / 10;
 
 		JLabel label = new JLabel("", SwingConstants.CENTER);
 		label.setText("Amogus");
 		label.setVisible(true);
 		frame.add(label);
 		
-		while (running = true) {
+		while (running = true) { //Main loop
 			time = LocalTime.now();
 			date = LocalDate.now();
-			nextUpdate = runT + 1;
-			runT = time.getSecond() - fSec;
+			nextUpdate = runT + 1 / 10;
+			runT = time.getSecond() / 10 - fSec;
 			
 			if (runT == nextUpdate) {
 				nextUpdate++;
-				System.out.println("Run time: " + runT + "s");
+				//System.out.println("Run time: " + runT + "s");
 				label.setText(Integer.toString(runT));
 				WindowManager.updt(label);
 			}
